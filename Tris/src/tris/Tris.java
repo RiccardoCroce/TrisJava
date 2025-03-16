@@ -114,8 +114,8 @@ public class Tris {
     private void reset(){
         Reset.setBackground(Color.black);
         Reset.setForeground(Color.white);
-        Reset.setFont(new Font("Arial", Font.BOLD, 20));
-        Reset.addActionListener(new ActionListener(){
+        Reset.setFont(new Font("Arial", Font.BOLD, 20)); //FONT
+        Reset.addActionListener(new ActionListener(){ 
         public void actionPerformed(ActionEvent f){
             if (f.getSource()==Reset){
                 Finestra.remove(PannelloGriglia);
@@ -142,7 +142,7 @@ public class Tris {
                 PannelloGriglia.setBackground(Color.gray);
                 Finestra.add(PannelloGriglia);
                 initGriglia();
-                SwingUtilities.updateComponentTreeUI(Finestra);
+                SwingUtilities.updateComponentTreeUI(Finestra);  //aggiorna la griglia
                 System.out.println("Punti di X: " + PuntiX+ "\nPunti di O: " + PuntiO+ "\nPareggi: " + Pareggio);
                 System.out.println();
                 }
@@ -153,7 +153,7 @@ public class Tris {
     private void ControlloGriglia(){
         //Vittoria Verticale 
         for (int i = 0; i < 3; i++) {
-            if (GrigliaBottoni[0][i].getText().equals("")) continue; //bisogna continuare sennò il codice non funziona
+            if (GrigliaBottoni[0][i].getText().equals("")) continue; //bisogna continuare 
             
             if (GrigliaBottoni[0][i].getText().equals(GrigliaBottoni[1][i].getText())&&
                 GrigliaBottoni[1][i].getText().equals(GrigliaBottoni[2][i].getText())){
@@ -161,13 +161,13 @@ public class Tris {
                     setVincitore(GrigliaBottoni[j][i]);
                 }
                 FineGioco = true;
-                return; //Senza il return succede che quando turni(variabile) arriva a 9 e c'è una vittoria non la conta e dice pareggio 
+                return; //Senza il return la variabile intera "turni" arriva a 9 e se c'è una vittoria non la conta ed è pareggio 
             }
         }
         
         //Vittoria Orizzontale
         for (int i = 0; i < 3; i++) {
-            if (GrigliaBottoni[i][0].getText().equals("")) continue; //bisogna continuare sennò il codice non funziona
+            if (GrigliaBottoni[i][0].getText().equals("")) continue; //bisogna continuare 
             
             if (GrigliaBottoni[i][0].getText().equals(GrigliaBottoni[i][1].getText())&&
                 GrigliaBottoni[i][1].getText().equals(GrigliaBottoni[i][2].getText())){
@@ -175,7 +175,7 @@ public class Tris {
                 setVincitore(GrigliaBottoni[i][1]);
                 setVincitore(GrigliaBottoni[i][2]);
                 FineGioco = true;
-                return; //Senza il return succede che quando turni(variabile) arriva a 9 e c'è una vittoria non la conta e dice pareggio 
+                return; //Senza il return la variabile intera "turni" arriva a 9 e se c'è una vittoria non la conta ed è pareggio 
             }
         }
         
@@ -187,7 +187,7 @@ public class Tris {
                 setVincitore(GrigliaBottoni[j][j]);
             }
             FineGioco = true;
-            return; //Senza il return succede che quando turni(variabile) arriva a 9 e c'è una vittoria non la conta e dice pareggio 
+            return; //Senza il return la variabile intera "turni" arriva a 9 e se c'è una vittoria non la conta ed è pareggio 
             }
         
         
@@ -199,7 +199,7 @@ public class Tris {
             setVincitore(GrigliaBottoni[1][1]);
             setVincitore(GrigliaBottoni[2][0]);
             FineGioco = true;
-            return; //Senza il return succede che quando turni(variabile) arriva a 9 e c'è una vittoria non la conta e dice pareggio 
+            return; //Senza il return la variabile intera "turni" arriva a 9 e se c'è una vittoria non la conta ed è pareggio 
             }
         
         //Pareggio
